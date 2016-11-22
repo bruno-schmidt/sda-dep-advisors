@@ -1,6 +1,8 @@
 # Requirements
 
 - Python 3+
+- lxml
+- requests
 
 # Usage
 
