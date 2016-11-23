@@ -1,4 +1,4 @@
-# Serenata de Amor Deputy Advisors
+# [Work in Progress] Serenata de Amor Deputy Advisors
 
 A tool to scrap deputy advisors data and save to a CSV file for @datasciencebr [Serenata de Amor](https://github.com/datasciencebr/serenata-de-amor)
 
