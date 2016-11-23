@@ -26,14 +26,6 @@ def fetch_advisors_from_deputy(deputy_number):
     tree = html.fromstring(page.content)
     return list(map(lambda element: element.xpath("./td/text() | ./td/span/text()"), tree.xpath('//tbody[@class="coresAlternadas"]/tr')))
 
-def run(target):
-    deputies_data = fetch_deputies_data()
-
-    pool = Pool(processes=2)
-    for deputy_information in pool.imap(organize_deputy_data, deputies_data):
-        write_to_csv(deputy_information)
-        
-
 def organize_deputy_data(deputy):
     """
     Organizes the deputy information to an array
@@ -44,6 +36,18 @@ def organize_deputy_data(deputy):
         dep.append(deputy["deputy_number"])
     
     return output
+
+def run():
+    print("Fetching deputies data...")
+    deputies_data = fetch_deputies_data()
+
+    print("Fetching advisors...")
+    pool = Pool(processes=2)
+    for deputy_information in pool.imap(organize_deputy_data, deputies_data):
+        write_to_csv(deputy_information)
+
+    print("Finished!")
+    
 
 def write_to_csv(data):
     """
@@ -56,4 +60,4 @@ def write_to_csv(data):
             
 
 if __name__ == '__main__':
-    run(True)
+    run()
