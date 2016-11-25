@@ -56,9 +56,9 @@ def get_request_to_page_of_advisors_from_deputy(deputy):
 
 def extract_advisors_from_page(page):
     """
-    Returns a dict with keys: deputy_name, deputy_number and advisors
+    Returns a dict with keys: `deputy_name`, `deputy_number` and `advisors`
     This function will look for these informations in the HTML inside the Response object in `page`.
-    :page: (Response) A response object from requests|grequests.post call to CAMARA_URL with the `lotacao` field filled with `deputy_number`.
+    :page: (Response) A response object from requests.post|grequests.post call to CAMARA_URL with the `lotacao` field filled with `deputy_number`.
     """
     tree = html.fromstring(page.content)
 
