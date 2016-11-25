@@ -10,9 +10,6 @@ Clone this repository to a folder and run inside of it:
 
 The information of each deputy will be written to a CSV file inside `data` folder.
 
-It won't take long to fetch all the data. The file size will be around 1MB when it finishes fetching.
-
-
 # File format
 
 The file is generated without headers, but the fields are organized in the following order:
@@ -23,4 +20,4 @@ The file is generated without headers, but the fields are organized in the follo
 
 - Python 3+
 - lxml
-- requests
+- requests and grequests
