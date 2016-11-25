@@ -48,7 +48,7 @@ def fetch_deputies_data():
 
 def get_request_to_page_of_advisors_from_deputy(deputy):
     """
-    Returns a Request object from grequests ready to be sent to CAMARA_URL with `lotacao` field filled with `deputy_number`
+    Returns a POST Request object from grequests ready to be sent to `CAMARA_URL` with `lotacao` field filled with `deputy_number`
     :deputy: (dict) A Dict with fields `deputy_name` and `deputy_number`
     """
     return grequests.post(CAMARA_URL, data={"lotacao": deputy["deputy_number"]})
@@ -58,7 +58,7 @@ def extract_advisors_from_page(page):
     """
     Returns a dict with keys: `deputy_name`, `deputy_number` and `advisors`
     This function will look for these informations in the HTML inside the Response object in `page`.
-    :page: (Response) A response object from requests.post|grequests.post call to CAMARA_URL with the `lotacao` field filled with `deputy_number`.
+    :page: (Response) A response object from requests.post|grequests.post call to `CAMARA_URL` with the `lotacao` field filled with `deputy_number`.
     """
     tree = html.fromstring(page.content)
 
