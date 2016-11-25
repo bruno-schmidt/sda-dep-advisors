@@ -84,8 +84,9 @@ def organize_deputy_data(deputy, advisors):
 
 def write_to_csv(data, output):
     """
-    Writes :data: to output/latest.csv
+    Writes `data` to `output`
     :data: (list) the list with organized deputy information ready to be written
+    :output: (string) the full path to a file where :data: should be written
     """
     with open(output, "a", newline="") as latest_file:
         writer = csv.writer(latest_file, quoting=csv.QUOTE_ALL)
