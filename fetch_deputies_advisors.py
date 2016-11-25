@@ -77,8 +77,8 @@ def organize_deputy_data(deputy, advisors):
         return list([["", "", "", "", deputy["deputy_name"], deputy["deputy_number"]]])
     else:
         for dep in advisors:
-            output.append([dep, deputy["deputy_name"], deputy["deputy_number"]])
-            
+            output.append(dep[:] + [deputy["deputy_name"], deputy["deputy_number"]]) 
+    
     return output
 
 
