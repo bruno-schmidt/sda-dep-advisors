@@ -70,7 +70,9 @@ def extract_advisors_from_page(page):
 
 def organize_deputy_data(deputy, advisors):
     """
-    Organizes all the deputies information in an array. Use for prepare data to be written to CSV format
+    Organizes all the deputies information in a list. Use this function to prepare data to be written to CSV format
+    :deputy: (Dict) A dict with keys `deputy_name` and `deputy_number`
+    :advisors: (list) A list of lists with advisors data. Each list with advisor data must have only four elements
     """
     output = list()
     if len(advisors) == 0:
