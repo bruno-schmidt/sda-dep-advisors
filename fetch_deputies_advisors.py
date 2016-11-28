@@ -79,7 +79,8 @@ def get_request_to_page_of_advisors_from_deputy(deputy, page=1):
     :deputy: (dict) A Dict with fields `deputy_name` and `deputy_number`
     :page: (int) Defaults to 1. The page number
     """
-    return grequests.post(CAMARA_URL, data={"lotacao": deputy["deputy_number"],"b_start:int": 0 if page==1 else 20 + (page - 2) * 20}) # page 1 = 0, page 2 = 20, page 3 = 40, ...
+    params = {"lotacao": deputy["deputy_number"],"b_start:int": 0 if page==1 else 20 + (page - 2) * 20} # page 1 = 0, page 2 = 20, page 3 = 40, ...
+    return grequests.post(CAMARA_URL, data=params) 
 
 
 def extract_data_from_page(page):
